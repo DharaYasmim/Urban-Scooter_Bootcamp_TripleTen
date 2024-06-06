@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "a4992cde-b568-4f05-ba8e-594bb4399beb",
+		"name": "Projeto Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33598783"
+	},
+	"item": [
+		{
+			"name": "Criar entregador",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"Dhara\",\r\n    \"password\": \"1234\",\r\n    \"firstName\": \"Dhara\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/courier",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login do entregador",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"Dhara\",\r\n    \"password\": \"1234\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/courier/login",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar pedido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Dhara\",\r\n    \"lastName\": \"Yasmim\",\r\n    \"address\": \"Avenida Santa Fe, 250 - Buenos Aires\",\r\n    \"metroStation\": 4,\r\n    \"phone\": \"55991+424857\",\r\n    \"rentTime\": 1,\r\n    \"deliveryDate\": \"2024-05-01\",\r\n    \"comment\": \"Cuidado com o cão\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de pedidos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter um pedido pelo seu número",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/track?t=905532",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"track"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "905532"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter o número de pedidos do entregador",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/courier/2/ordersCount",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier",
+						"2",
+						"ordersCount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aceitar pedido",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/accept/3?courierId=2",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"accept",
+						"3"
+					],
+					"query": [
+						{
+							"key": "courierId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Completar o pedido",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/finish/1",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"finish",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancelar pedido",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"track\": 123456\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/cancel",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar entregador",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/courier/2",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
